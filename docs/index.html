@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Digital Marketing ROI Calculator | Project Showcase</title>
+    <meta
+      name="description"
+      content="A full-stack digital marketing ROI calculator built with HTML, CSS, JavaScript, Node.js, Express, Chart.js, jsPDF, localStorage, sharing, and a backend AI recommendation route."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Tal Orlik" />
+    <meta name="theme-color" content="#0b0e14" />
+    <link
+      rel="canonical"
+      href="https://talorlik.github.io/claude-code-roi-calculator-marketing/"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Digital Marketing ROI Calculator" />
+    <meta
+      property="og:title"
+      content="Digital Marketing ROI Calculator | Project Showcase"
+    />
+    <meta
+      property="og:description"
+      content="A project showcase for a marketing ROI calculator with projections, charts, PDF export, sharing, local persistence, and backend AI recommendations."
+    />
+    <meta
+      property="og:url"
+      content="https://talorlik.github.io/claude-code-roi-calculator-marketing/"
+    />
+    <meta
+      property="og:image"
+      content="https://talorlik.github.io/claude-code-roi-calculator-marketing/header_banner.png"
+    />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="576" />
+    <meta
+      property="og:image:alt"
+      content="Digital Marketing ROI Calculator project banner"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Digital Marketing ROI Calculator" />
+    <meta
+      name="twitter:description"
+      content="A full-stack ROI calculator assignment with charts, PDF export, sharing, persistence, docs, tests, and an AI recommendation backend."
+    />
+    <meta
+      name="twitter:image"
+      content="https://talorlik.github.io/claude-code-roi-calculator-marketing/header_banner.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Digital Marketing ROI Calculator project banner"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" aria-label="Page controls">
+      <a class="brand-link" href="#overview">ROI Calculator Project</a>
+      <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to light theme"
+        aria-pressed="false"
+      >
+        <span class="theme-toggle__icon" aria-hidden="true">L</span>
+        <span class="theme-toggle__text">Theme</span>
+      </button>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-content">
+          <p class="eyebrow">Project Showcase</p>
+          <h1 id="hero-heading">Digital Marketing ROI Calculator</h1>
+          <p class="tagline">
+            Forecast growth &middot; measure ROI &middot; share insights
+          </p>
+          <img
+            class="hero-banner"
+            src="./header_banner.png"
+            width="1024"
+            height="576"
+            alt="Digital Marketing ROI Calculator project banner"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <div class="hero-actions" aria-label="Primary links">
+            <a
+              class="button button--primary"
+              href="https://github.com/talorlik/claude-code-roi-calculator-marketing/blob/main/README.md"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Read README
+            </a>
+            <a class="button" href="#docs-heading">Browse Documentation</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <section id="overview" aria-labelledby="overview-heading">
+          <h2 id="overview-heading">Overview</h2>
+          <div class="lead-card">
+            <p>
+              This project implements an AI Game Changer course assignment to
+              build an interactive ROI calculator for a digital marketing
+              consultant. The calculator helps small-business prospects estimate
+              how monthly marketing investment may affect revenue over time.
+            </p>
+            <p>
+              The production app is a Node.js and Express project with a
+              browser frontend. This GitHub Page is the static project
+              showcase and documentation hub: it explains what was built, how
+              the pieces fit together, which checks cover the behavior, and
+              where the supporting docs live.
+            </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="features-heading">
+          <h2 id="features-heading">Project Highlights</h2>
+          <div class="card-grid">
+            <article class="card">
+              <h3>ROI Inputs</h3>
+              <p>
+                Users enter current monthly revenue, proposed monthly marketing
+                budget, and estimated monthly growth percentage with clear
+                field guidance.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Projected Results</h3>
+              <p>
+                The app calculates three-month, six-month, and twelve-month
+                revenue projections, annual ROI, and total profit or loss.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Chart Visualization</h3>
+              <p>
+                Chart.js renders a month-by-month revenue line chart so the
+                projection is easier to understand during a sales discussion.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Share And Restore</h3>
+              <p>
+                Results can be encoded into a shareable URL, restored from URL
+                parameters, and saved locally for the next visit.
+              </p>
+            </article>
+            <article class="card">
+              <h3>PDF Report</h3>
+              <p>
+                jsPDF exports a concise report that includes inputs, result
+                summaries, the chart when available, and any AI recommendation.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Backend AI Route</h3>
+              <p>
+                Express keeps the OpenAI API key on the server and returns safe
+                browser-facing messages for recommendation errors.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="architecture-heading">
+          <h2 id="architecture-heading">Architecture</h2>
+          <div class="split-layout">
+            <article class="card">
+              <h3>Frontend Modules</h3>
+              <p>
+                <code>public/app.js</code> coordinates UI state while
+                <code>public/js/calculator.js</code>,
+                <code>public/js/chart.js</code>, <code>public/js/dom.js</code>,
+                <code>public/js/pdf.js</code>, and
+                <code>public/js/storage.js</code> keep feature logic focused.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Backend Boundary</h3>
+              <p>
+                <code>server.js</code> serves static files, exposes a health
+                check, validates recommendation requests, and calls OpenAI only
+                from the server environment.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="tests-heading">
+          <h2 id="tests-heading">Tests</h2>
+          <p class="note note--flush">
+            The project uses Node's built-in test runner for focused unit and
+            integration coverage without adding a heavyweight test stack.
+          </p>
+          <div class="command-grid">
+            <article class="command-card">
+              <h3>All Automated Tests</h3>
+              <code>npm test</code>
+              <p>Runs calculator, backend, and static documentation checks.</p>
+            </article>
+            <article class="command-card">
+              <h3>Calculator Tests</h3>
+              <code>node --test tests/calculator.test.js</code>
+              <p>Checks validation, ROI calculations, formatting, and series data.</p>
+            </article>
+            <article class="command-card">
+              <h3>Server Tests</h3>
+              <code>node --test tests/server.test.js</code>
+              <p>Exercises health, static HTML, request validation, and safe errors.</p>
+            </article>
+            <article class="command-card">
+              <h3>Manual QA</h3>
+              <code>tests/E2E_CHECKLIST.md</code>
+              <p>Documents browser checks for calculate, chart, PDF, share, and AI flows.</p>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="docs-heading">
+          <h2 id="docs-heading">Documentation Hub</h2>
+          <div class="link-grid">
+            <a
+              class="link-card"
+              href="https://github.com/talorlik/claude-code-roi-calculator-marketing/blob/main/README.md"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>README</span>
+              <small>Setup, feature list, local checks, calculation rules, and security notes.</small>
+            </a>
+            <a
+              class="link-card"
+              href="https://github.com/talorlik/claude-code-roi-calculator-marketing/blob/main/docs/assignment/ASSIGNMENT.md"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>Assignment Brief</span>
+              <small>Original requirements for the marketing ROI calculator exercise.</small>
+            </a>
+            <a
+              class="link-card"
+              href="https://github.com/talorlik/claude-code-roi-calculator-marketing/blob/main/docs/planning/PRD.md"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>Product Requirements</span>
+              <small>Business context, goals, scope, functional requirements, and DoD.</small>
+            </a>
+            <a
+              class="link-card"
+              href="https://github.com/talorlik/claude-code-roi-calculator-marketing/blob/main/docs/planning/TECHNICAL_REQUIREMENTS.md"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>Technical Requirements</span>
+              <small>Runtime, backend, frontend, testing, and security constraints.</small>
+            </a>
+            <a
+              class="link-card"
+              href="https://github.com/talorlik/claude-code-roi-calculator-marketing/blob/main/docs/planning/TASK_BREAKDOWN.md"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>Task Breakdown</span>
+              <small>Implementation batches and validation steps used for the build.</small>
+            </a>
+            <a
+              class="link-card"
+              href="https://github.com/talorlik/claude-code-roi-calculator-marketing/tree/main/docs/prompts"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>Prompt History</span>
+              <small>Claude Code prompts used for each project implementation batch.</small>
+            </a>
+          </div>
+        </section>
+
+        <section aria-labelledby="run-heading">
+          <h2 id="run-heading">Run Locally</h2>
+          <div class="lead-card">
+            <p>
+              There is no hosted live application for now. To inspect the app,
+              install dependencies and start the Express server from the
+              repository root:
+            </p>
+            <pre><code>npm install
+npm start</code></pre>
+            <p>
+              The server serves <code>public/index.html</code>, while this
+              <code>docs/</code> page remains a static GitHub Pages showcase.
+            </p>
+          </div>
+        </section>
+
+        <footer>
+          <p>
+            Built as a static project showcase for the Digital Marketing ROI
+            Calculator assignment.
+          </p>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>
