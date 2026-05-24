@@ -1,0 +1,397 @@
+/*
+ * Digital Marketing ROI Calculator — base styles.
+ *
+ * Palette:
+ *   primary blue  #2563eb
+ *   accent green  #16a34a
+ *   surfaces      white on a tinted blue-gray page
+ *
+ * Layout is mobile-first: a single column that grows comfortable
+ * margins on wider screens.
+ */
+
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-accent: #16a34a;
+  --color-accent-dark: #15803d;
+  --color-bg: #f1f5f9;
+  --color-surface: #ffffff;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-border: #e2e8f0;
+  --color-error: #b91c1c;
+  --color-error-bg: #fee2e2;
+  --color-success: #166534;
+  --color-success-bg: #dcfce7;
+  --radius: 0.75rem;
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04),
+    0 4px 12px rgba(15, 23, 42, 0.06);
+  --shadow-card-hover: 0 2px 4px rgba(15, 23, 42, 0.06),
+    0 8px 20px rgba(15, 23, 42, 0.08);
+  --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  padding: 1.5rem 1rem 0.5rem;
+  max-width: 64rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.site-title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: var(--color-primary);
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.site-title__icon {
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.site-intro {
+  margin: 0;
+  color: var(--color-text-muted);
+  max-width: 50rem;
+}
+
+.layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 64rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-card);
+}
+
+.card h2 {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+  color: var(--color-text);
+}
+
+.roi-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .roi-form {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .actions--primary {
+    grid-column: 1 / -1;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.field__unit {
+  color: var(--color-text-muted);
+  font-weight: 400;
+  font-size: 0.85em;
+}
+
+.field input {
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: #fff;
+  color: inherit;
+  min-height: 2.75rem;
+}
+
+.field input:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--focus-ring);
+}
+
+.field__tip {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.actions--advanced {
+  align-items: center;
+}
+
+.btn {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  min-height: 2.75rem;
+  cursor: pointer;
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease,
+    transform 0.05s ease;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.btn--secondary {
+  background: #fff;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn--secondary:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+}
+
+.btn--ghost:hover {
+  background: rgba(15, 23, 42, 0.05);
+}
+
+.btn:disabled,
+.btn[aria-busy="true"] {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.status:empty {
+  display: none;
+}
+
+.status {
+  margin-top: 1rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+/*
+ * The icon glyphs in .status--error::before and .status--success::before
+ * carry the same meaning as the background color, so the message
+ * communicates state without relying on color alone.
+ */
+.status--error {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  border: 1px solid #fecaca;
+}
+
+.status--error::before {
+  content: "⚠";
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.status--success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid #bbf7d0;
+}
+
+.status--success::before {
+  content: "✓";
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.result-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 40rem) {
+  .result-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 60rem) {
+  .result-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@keyframes roi-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes roi-fade-in {
+    from {
+      opacity: 1;
+      transform: none;
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+.result-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: var(--shadow-card);
+  animation: roi-fade-in 0.35s ease-out both;
+}
+
+.results,
+.chart-section,
+.ai-section {
+  animation: roi-fade-in 0.35s ease-out both;
+}
+
+.result-card__label {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.result-card__value {
+  margin: 0.25rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.result-card--accent .result-card__value {
+  color: var(--color-accent-dark);
+}
+
+.result-card--negative .result-card__value {
+  color: var(--color-error);
+}
+
+.chart-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 40rem) {
+  .chart-wrap {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.ai-recommendation {
+  white-space: pre-wrap;
+  background: #f8fafc;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.85rem 1rem;
+  color: var(--color-text);
+  min-height: 2rem;
+}
+
+.ai-recommendation:empty::before {
+  content: "Click \"Get AI Recommendation\" to generate one.";
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.site-footer {
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--color-border);
+  background: #fff;
+}
+
+.site-footer p {
+  margin: 0;
+}

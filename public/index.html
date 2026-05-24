@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Digital Marketing ROI Calculator</title>
+    <meta
+      name="description"
+      content="Estimate the return on a digital marketing investment for a small business: enter current revenue, marketing budget, and expected monthly growth to see projected revenue, ROI, and profit or loss."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1 class="site-title">
+        <span class="site-title__icon" aria-hidden="true">🧮</span>
+        Digital Marketing ROI Calculator
+      </h1>
+      <p class="site-intro">
+        Estimate how a monthly marketing investment can change a small
+        business's revenue over the next year. Enter three values and
+        the calculator will show projected revenue, ROI, and total
+        profit or loss.
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="card" aria-labelledby="form-heading">
+        <h2 id="form-heading">Your business inputs</h2>
+        <form id="roi-form" class="roi-form" novalidate>
+          <div class="field">
+            <label for="currentMonthlyRevenue">
+              Current monthly revenue
+              <span class="field__unit">(NIS)</span>
+            </label>
+            <input
+              id="currentMonthlyRevenue"
+              name="currentMonthlyRevenue"
+              type="number"
+              min="0"
+              step="any"
+              inputmode="decimal"
+              required
+              aria-describedby="currentMonthlyRevenue-tip"
+            />
+            <small id="currentMonthlyRevenue-tip" class="field__tip">
+              The revenue your business earns in a typical month, in
+              Israeli shekels. Must be greater than 0.
+            </small>
+          </div>
+
+          <div class="field">
+            <label for="monthlyMarketingBudget">
+              Monthly marketing budget
+              <span class="field__unit">(NIS)</span>
+            </label>
+            <input
+              id="monthlyMarketingBudget"
+              name="monthlyMarketingBudget"
+              type="number"
+              min="0"
+              step="any"
+              inputmode="decimal"
+              required
+              aria-describedby="monthlyMarketingBudget-tip"
+            />
+            <small id="monthlyMarketingBudget-tip" class="field__tip">
+              What you plan to spend on marketing each month, in NIS.
+              Must be greater than 0.
+            </small>
+          </div>
+
+          <div class="field">
+            <label for="monthlyGrowthPercentage">
+              Estimated monthly growth
+              <span class="field__unit">(%)</span>
+            </label>
+            <input
+              id="monthlyGrowthPercentage"
+              name="monthlyGrowthPercentage"
+              type="number"
+              min="0"
+              max="100"
+              step="any"
+              inputmode="decimal"
+              required
+              aria-describedby="monthlyGrowthPercentage-tip"
+            />
+            <small id="monthlyGrowthPercentage-tip" class="field__tip">
+              How much you expect monthly revenue to grow because of
+              marketing, as a percentage. Between 0 and 100.
+            </small>
+          </div>
+
+          <div class="actions actions--primary">
+            <button type="submit" class="btn btn--primary">
+              Calculate ROI
+            </button>
+          </div>
+        </form>
+
+        <div
+          id="status"
+          class="status"
+          role="status"
+          aria-live="polite"
+        ></div>
+      </section>
+
+      <section
+        id="results"
+        class="card results"
+        aria-labelledby="results-heading"
+        hidden
+      >
+        <h2 id="results-heading">Projected results</h2>
+        <div id="result-cards" class="result-cards"></div>
+      </section>
+
+      <section
+        id="chart-section"
+        class="card chart-section"
+        aria-labelledby="chart-heading"
+        hidden
+      >
+        <h2 id="chart-heading">Revenue over the next 12 months</h2>
+        <div class="chart-wrap">
+          <canvas id="revenue-chart" aria-label="Projected revenue chart"></canvas>
+        </div>
+      </section>
+
+      <section
+        id="ai-section"
+        class="card ai-section"
+        aria-labelledby="ai-heading"
+        hidden
+      >
+        <h2 id="ai-heading">AI recommendation</h2>
+        <div id="ai-recommendation" class="ai-recommendation"></div>
+      </section>
+
+      <section
+        id="advanced-actions"
+        class="card actions actions--advanced"
+        aria-label="Result actions"
+        hidden
+      >
+        <button id="btn-ai" type="button" class="btn btn--secondary" hidden>
+          Get AI Recommendation
+        </button>
+        <button id="btn-pdf" type="button" class="btn btn--secondary" hidden>
+          Download PDF Report
+        </button>
+        <button id="btn-share" type="button" class="btn btn--secondary" hidden>
+          Share Results
+        </button>
+        <button id="btn-reset" type="button" class="btn btn--ghost" hidden>
+          Reset
+        </button>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Built with Claude Code</p>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"
+      defer
+    ></script>
+    <script src="js/calculator.js" defer></script>
+    <script src="js/chart.js" defer></script>
+    <script src="js/dom.js" defer></script>
+    <script src="js/storage.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/pdf.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
